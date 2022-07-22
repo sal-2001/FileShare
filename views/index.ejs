@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head >
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="width-device-width, initial-scale=1.0">
+         <title>FileShare</title>
+    </head>
+    <body>
+        
+        <div style="display: flex; flex-direction: column; 
+        justify-content: center; padding: 1rem; background-color: white;
+        min-height: 100vh;">
+        <% if (locals.fileLink != null){%>
+            <div style="display: flex; justify-content: center; margin-bottom:1rem;">
+               Your file is uploaded. 
+               <a style="margin-left: 2px;"href="<%=locals.fileLink%>">Click here to download!</a>    
+            </div>
+        <%}%>
+        <form action="/upload" method="post" style="display: grid; gap: .5rem; grid-template-columns: auto 1fr;
+        max-width: 600px; margin: 0 auto" enctype="multipart/form-data">
+           <div style="display: flex; flex-direction: column; 
+           justify-content: center; padding: 1rem; background-color: rgb(11, 202, 173);
+           border: solid; border-width: 2px; border-color: black;">
+            <label style="color: black; font-size: 18px; font-weight: 600;" for="file">File:</label>
+            <input style="margin-top: 10px; margin-bottom: 10px" type="file" id="file" name="file" required/>
+            <label style="color: black; font-size: 18px; font-weight: 600; margin-bottom: 10px;" for="password">Password:</label>
+            <input type="password" id="password" name="password"/>
+            <div>
+            <button style="color: white; background-color: black; width: 100%; cursor: pointer;
+             height: 30px; border-radius: 8px; margin-top: 10px;"type="Submit">Share
+             </button>
+             </div>
+           </div>
+        </form>
+        </div>
+    </body>
+</html>
